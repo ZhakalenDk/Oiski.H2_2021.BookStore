@@ -1,0 +1,49 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>1</h1>
+<!-- Single statement blocks  -->
+@{
+    var total = 7;
+    var myMessage = "Hello World";
+}
+<!-- Inline expressions -->
+<p>The value of your account is: @total </p>
+<p>The value of myMessage is: @myMessage</p>
+
+<!-- Multi-statement block -->
+@{
+    var greeting = "Welcome to our site!";
+    var weekDay = DateTime.Now.DayOfWeek;
+    var greetingMessage = greeting + " Today is: " + weekDay;
+    @:The greeting message is: @greetingMessage
+}
+
+<p>The greeting message is: @greetingMessage</p>
+
+<h1>2</h1>
+@{
+    var year = DateTime.Now.Year;
+
+    @year @:is a leap year?: @((DateTime.IsLeapYear (year))?("Yes"):("No"))
+}
+
+<h1>3</h1>
+@{
+    string[] people = { "Johanna", "Dennis", "Jasmin", "Mike", "Thomas", "Jan", "Frank" };
+
+    @:<h3>For</h3>
+    for (int i = 0; i < people.Length; i++)
+    {
+        @:Name: @people[i];
+    }
+
+    @:<h3>Foreach</h3>
+    foreach (string name in people)
+    {
+        @:Name: @name;
+    }
+}
